@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ggbet – 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* 页面主标题区 — 简约目录感 */
+        .page-header {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #dde1e6;
+            padding-bottom: 1.2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2b;
+        }
+
+        .page-header p {
+            color: #4a5b6e;
+            margin-top: 0.4rem;
+            font-size: 1rem;
+        }
+
+        /* 统一定义卡片 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e7ed;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 280px;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #6c7a8d;
+            padding-left: 0.7rem;
+            color: #16212f;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2d3b4c;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7a8b9e;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8edf3;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2d4055;
+            margin-right: 0.3rem;
+        }
+
+        .highlight-box {
+            background: #f6f9fd;
+            border: 1px solid #d7e0e9;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.5rem 0 2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1c2a3c;
+            margin-bottom: 0.7rem;
+        }
+
+        .highlight-box p {
+            color: #2e4057;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e1e6ed;
+            border-radius: 14px;
+            padding: 1.1rem 1.5rem;
+            flex: 1 1 240px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #13202f;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #3d5066;
+        }
+
+        .link-sentence {
+            background: #ffffff;
+            border: 1px solid #e2e7ed;
+            border-radius: 18px;
+            padding: 1.8rem;
+            margin: 2.4rem 0 1.2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .link-sentence p {
+            font-size: 1rem;
+            color: #1a283c;
+        }
+
+        .link-sentence a {
+            color: #1a4b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9bb1c7;
+        }
+
+        .link-sentence a:hover {
+            border-bottom: 1px solid #1a4b7a;
+            color: #0c2b49;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d7dde4;
+            font-size: 0.85rem;
+            color: #5c6e82;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.4rem 1rem;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.4rem;
+            }
+            .highlight-box, .link-sentence {
+                padding: 1.2rem;
+            }
+            .faq-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 页眉 / 目录感标题 -->
+    <div class="page-header">
+        <h1>ggbet · 稳定入口与说明</h1>
+        <p>以下内容整理了关于 ggbet 的基本信息、使用提示及相关说明，帮助您快速了解这个服务。</p>
+    </div>
+
+    <!-- 卡片网格 — 知识库入口式 -->
+    <div class="card-grid">
+
+        <!-- 卡片：服务简介 -->
+        <div class="card">
+            <h2>服务简述</h2>
+            <p><span class="badge">稳定</span><span class="badge">入口</span></p>
+            <p><a href="https://portal-official-ggbet.com" style="color: #1a4b7a; text-decoration: underline dotted;">ggbet</a> 是一个面向特定用户群体的在线服务平台，提供整合式的访问体验。其官方页面承担着统一入口的角色，使用者可通过该页面获取核心功能与最新动态。</p>
+        </div>
+
+        <!-- 卡片：主要特点 -->
+        <div class="card">
+            <h2>特点与说明</h2>
+            <ul>
+                <li>页面结构简洁，信息层级清晰</li>
+                <li>区分不同业务模块，减少跳转混乱</li>
+                <li>定期更新说明与常见问题</li>
+                <li>适配多种设备，保持基础可用性</li>
+            </ul>
+        </div>
+
+        <!-- 卡片：适用场景 -->
+        <div class="card">
+            <h2>适用场景</h2>
+            <ul>
+                <li>需要快速定位服务入口时</li>
+                <li>查阅功能概述与基础指引</li>
+                <li>了解平台当前的主要模块</li>
+                <li>作为书签或导航的固定起点</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="highlight-box">
+        <h3>使用提示</h3>
+        <p>首次访问时建议先浏览页面内各分区标题，确认自己需要的模块。多数说明性内容已在页面中直接展示，无需额外跳转。如使用中遇到加载问题，可尝试刷新或检查网络环境。平台入口地址仅以 <strong>portal-official-ggbet.com</strong> 为准，请留意域名拼写。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 style="font-size: 1.2rem; font-weight: 500; margin: 1.8rem 0 1rem 0; border-left: 4px solid #6c7a8d; padding-left: 0.7rem;">常见问题摘要</h2>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>如何确认当前页面是官方入口？</strong>
+            <span>核对浏览器地址栏域名是否为 <code>portal-official-ggbet.com</code>，并留意页面标识。</span>
+        </div>
+        <div class="faq-item">
+            <strong>页面加载缓慢怎么办？</strong>
+            <span>检查本地网络连接，或尝试使用其他浏览器。该页面不包含大体积资源。</span>
+        </div>
+        <div class="faq-item">
+            <strong>页面内容会变化吗？</strong>
+            <span>说明区与提示信息会根据平台调整而更新，建议定期查阅。</span>
+        </div>
+    </div>
+
+    <!-- 嵌入链接的自然句子 -->
+    <div class="link-sentence">
+        <p>若您正在寻找一个结构清晰的说明页，可直接将 <a href="https://portal-official-ggbet.com">ggbet</a> 添加为浏览器书签，以便日后快速查阅最新介绍与指引。</p>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div style="background: #ffffff; border: 1px solid #e2e7ed; border-radius: 18px; padding: 1.6rem 1.8rem; margin: 2rem 0 1.2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #16212f;">相关信息</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem;">
+            <div style="flex: 1 1 180px;">
+                <p style="font-weight: 500; margin-bottom: 0.2rem; font-size: 0.95rem;">域名</p>
+                <p style="color: #3d5066; font-size: 0.9rem;">portal-official-ggbet.com</p>
+            </div>
+            <div style="flex: 1 1 180px;">
+                <p style="font-weight: 500; margin-bottom: 0.2rem; font-size: 0.95rem;">页面类型</p>
+                <p style="color: #3d5066; font-size: 0.9rem;">介绍 / 入口 / 说明</p>
+            </div>
+            <div style="flex: 1 1 180px;">
+                <p style="font-weight: 500; margin-bottom: 0.2rem; font-size: 0.95rem;">内容维护</p>
+                <p style="color: #3d5066; font-size: 0.9rem;">按版本定期更新</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <span>内容整理 · 知识库风格</span>
+        <span>仅为说明用途 · 不构成使用建议</span>
+    </div>
+
+</div>
+</body>
+</html>
